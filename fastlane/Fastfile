@@ -11,9 +11,28 @@ platform :ios do
       key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"),
       key_content: ENV.fetch("ASC_KEY_P8"), is_key_content_base64: true, in_house: false)
 
-    # App ID in the developer portal + app record in App Store Connect (no-op when they already exist)
-    produce(api_key: api_key, app_identifier: BUNDLE_ID, app_name: ENV.fetch("APP_NAME", "城墙之战"),
-            language: "zh-Hans", sku: "chengqiang-001", skip_itc: false, platform: "ios")
+    # App ID in the developer portal + app record in App Store Connect (both no-ops when they already exist).
+    # `produce` needs an Apple ID login, so we talk to the App Store Connect API (already authenticated above) directly.
+    require "spaceship"
+    bid = Spaceship::ConnectAPI::BundleId.all(filter: { identifier: BUNDLE_ID }).find { |b| b.identifier == BUNDLE_ID }
+    if bid.nil?
+      Spaceship::ConnectAPI::BundleId.create(name: "ChengQiang", platform: Spaceship::ConnectAPI::BundleIdPlatform::IOS, identifier: BUNDLE_ID)
+      UI.success("Registered App ID #{BUNDLE_ID}")
+    end
+    app = Spaceship::ConnectAPI::App.find(BUNDLE_ID)
+    if app.nil?
+      names = [ENV.fetch("APP_NAME", "城墙之战"), "城墙之战 Castle Wall", "城墙之战 by Facai"]
+      names.each do |n|
+        begin
+          Spaceship::ConnectAPI::App.create(name: n, version_string: "1.0", sku: "chengqiang-001", primary_locale: "zh-Hans",
+                                            bundle_id: BUNDLE_ID, platforms: ["IOS"])
+          UI.success("Created App Store Connect app '#{n}'"); break
+        rescue => e
+          UI.important("App name '#{n}' rejected: #{e.message[0, 200]}")
+        end
+      end
+      UI.user_error!("Could not create the App Store Connect app record") if Spaceship::ConnectAPI::App.find(BUNDLE_ID).nil?
+    end
 
     setup_ci
     certs_repo = "https://x-access-token:#{ENV.fetch('GITHUB_TOKEN')}@github.com/#{ENV.fetch('GITHUB_REPOSITORY')}.git"
