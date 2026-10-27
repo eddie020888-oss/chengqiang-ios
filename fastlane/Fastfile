@@ -1,0 +1,40 @@
+# 城墙之战 — iOS TestFlight pipeline. Runs on a macOS GitHub Actions runner; signing via App Store Connect API key + match.
+default_platform(:ios)
+
+BUNDLE_ID = "com.facai.chengqiang"
+XCODE_PROJ = "xcode/Unity-iPhone.xcodeproj"
+
+platform :ios do
+  desc "Create app record if needed, sign, archive and upload to TestFlight"
+  lane :beta do
+    api_key = app_store_connect_api_key(
+      key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"),
+      key_content: ENV.fetch("ASC_KEY_P8"), is_key_content_base64: true, in_house: false)
+
+    # App ID in the developer portal + app record in App Store Connect (no-op when they already exist)
+    produce(api_key: api_key, app_identifier: BUNDLE_ID, app_name: ENV.fetch("APP_NAME", "城墙之战"),
+            language: "zh-Hans", sku: "chengqiang-001", skip_itc: false, platform: "ios")
+
+    setup_ci
+    certs_repo = "https://x-access-token:#{ENV.fetch('GITHUB_TOKEN')}@github.com/#{ENV.fetch('GITHUB_REPOSITORY')}.git"
+    match(type: "appstore", api_key: api_key, app_identifier: BUNDLE_ID, readonly: false,
+          git_url: certs_repo, git_branch: "certs", storage_mode: "git", generate_apple_certs: true)
+
+    team_id = ENV.fetch("sigh_#{BUNDLE_ID}_appstore_team-id")
+    profile = ENV.fetch("sigh_#{BUNDLE_ID}_appstore_profile-name")
+    update_project_team(path: XCODE_PROJ, teamid: team_id)
+    update_code_signing_settings(path: XCODE_PROJ, use_automatic_signing: false, team_id: team_id,
+      targets: ["Unity-iPhone"], bundle_identifier: BUNDLE_ID, code_sign_identity: "Apple Distribution", profile_name: profile)
+    update_code_signing_settings(path: XCODE_PROJ, use_automatic_signing: false, team_id: team_id,
+      targets: ["UnityFramework"], code_sign_identity: "", profile_name: "")
+    update_info_plist(xcodeproj: XCODE_PROJ, plist_path: "Info.plist",
+      block: proc { |p| p["ITSAppUsesNonExemptEncryption"] = false; p["CFBundleDisplayName"] = "城墙之战" })
+
+    build_app(project: XCODE_PROJ, scheme: "Unity-iPhone", configuration: "Release", export_method: "app-store",
+      output_directory: "out", output_name: "ChengQiang.ipa", xcargs: "-allowProvisioningUpdates=NO",
+      export_options: { provisioningProfiles: { BUNDLE_ID => profile }, signingStyle: "manual" })
+
+    upload_to_testflight(api_key: api_key, ipa: "out/ChengQiang.ipa", skip_waiting_for_build_processing: true,
+      changelog: "城墙之战 自动构建 #{ENV['GITHUB_RUN_NUMBER']}")
+  end
+end

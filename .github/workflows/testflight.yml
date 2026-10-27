@@ -1,0 +1,45 @@
+name: TestFlight
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["xcode/**", "fastlane/**", ".github/workflows/testflight.yml"]
+permissions:
+  contents: write
+concurrency:
+  group: testflight
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rejoin large files
+        run: scripts/join.sh
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Build and upload
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FASTLANE_SKIP_UPDATE_CHECK: "1"
+          LC_ALL: en_US.UTF-8
+          LANG: en_US.UTF-8
+        run: bundle exec fastlane ios beta
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ipa-and-logs
+          path: |
+            out/*.ipa
+            ~/Library/Logs/gym/*.log
+          if-no-files-found: ignore
