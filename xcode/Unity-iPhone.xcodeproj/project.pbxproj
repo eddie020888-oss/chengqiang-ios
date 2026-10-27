@@ -424,6 +424,7 @@
 		9E24128D928BD8B2432BC358 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9EA3E57A19EDE7497E36F3DF /* UnityEngine.GameCenterModule_CodeGen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = UnityEngine.GameCenterModule_CodeGen.c; path = Il2CppOutputProject/Source/il2cppOutput/UnityEngine.GameCenterModule_CodeGen.c; sourceTree = SOURCE_ROOT; };
 		A2CED23EF972B06324B644C0 /* UnityViewControllerBase+iOS.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "UnityViewControllerBase+iOS.mm"; path = "Classes/UI/UnityViewControllerBase+iOS.mm"; sourceTree = SOURCE_ROOT; };
+		A34734E12320BFE93D77614B /* Assembly-CSharp__5.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "Assembly-CSharp__5.cpp"; path = "Il2CppOutputProject/Source/il2cppOutput/Assembly-CSharp__5.cpp"; sourceTree = SOURCE_ROOT; };
 		A4591E5013E0219646DFFBD4 /* UnityEngine.GameCenterModule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UnityEngine.GameCenterModule.cpp; path = Il2CppOutputProject/Source/il2cppOutput/UnityEngine.GameCenterModule.cpp; sourceTree = SOURCE_ROOT; };
 		A468170C27AF3CE1F9140010 /* KeyboardViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeyboardViews.h; path = Classes/UI/KeyboardViews.h; sourceTree = SOURCE_ROOT; };
 		A529073209F33C97235B86E2 /* UnityEngine.ScriptingModule_CodeGen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = UnityEngine.ScriptingModule_CodeGen.c; path = Il2CppOutputProject/Source/il2cppOutput/UnityEngine.ScriptingModule_CodeGen.c; sourceTree = SOURCE_ROOT; };
@@ -748,6 +749,7 @@
 				0625BA89AA0F71807DF4285A /* Assembly-CSharp__2.cpp */,
 				3BF0F548641EA67234EF4822 /* Assembly-CSharp__3.cpp */,
 				4F97D266790DB44CD01959EC /* Assembly-CSharp__4.cpp */,
+				A34734E12320BFE93D77614B /* Assembly-CSharp__5.cpp */,
 				DC641E85B09D087E3E294418 /* GenericMethods.cpp */,
 				CF08E8E4A81091C5FDB9F66D /* GenericMethods__1.cpp */,
 				439D39F1FC43F7B0A6C04FFF /* Generics.cpp */,
