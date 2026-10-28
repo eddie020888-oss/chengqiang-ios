@@ -2057,6 +2057,7 @@ struct Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353  : public MonoBehaviour_t5
 	bool ___lastHitKill;
 	Dictionary_2_t407886BFEC611631BE22FCB5CEE888AF06363719* ___auras;
 	float ___qaTaken;
+	bool ___potionTip;
 	List_1_tDA2D0BA8D491B42C7FCE39D4DB99E93A54EBC5B8* ___pendingAura;
 	Enemy_tC338A73F6CE7172E0CEEF257B230C206DDFC27AE* ___target;
 	float ___targetT;
