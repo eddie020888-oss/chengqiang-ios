@@ -10321,6 +10321,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EquipPanel_Toggle_m9B1BFFF29DAB1AB22BA88
 		s_Il2CppMethodInitialized = true;
 	}
 	bool V_0 = false;
+	Hud_t293799F5F9B19F743DB47B37914BF7C5153FCAB1* G_B8_0 = NULL;
+	Hud_t293799F5F9B19F743DB47B37914BF7C5153FCAB1* G_B7_0 = NULL;
+	int32_t G_B9_0 = 0;
+	Hud_t293799F5F9B19F743DB47B37914BF7C5153FCAB1* G_B9_1 = NULL;
+	Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353* G_B11_0 = NULL;
+	Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353* G_B10_0 = NULL;
+	int32_t G_B12_0 = 0;
+	Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353* G_B12_1 = NULL;
 	{
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = __this->___root;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
@@ -10392,12 +10400,60 @@ IL_0074:
 	{
 		Hud_t293799F5F9B19F743DB47B37914BF7C5153FCAB1* L_16 = __this->___hud;
 		bool L_17 = V_0;
-		NullCheck(L_16);
-		Hud_SetBattleHud_mF7737A7545A25AE7A17220E9D7E8AC2A51C74463(L_16, (bool)((((int32_t)L_17) == ((int32_t)0))? 1 : 0), NULL);
+		if (L_17)
+		{
+			G_B8_0 = L_16;
+			goto IL_008a;
+		}
+		G_B7_0 = L_16;
+	}
+	{
 		Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353* L_18 = __this->___g;
-		bool L_19 = V_0;
 		NullCheck(L_18);
-		L_18->___paused = L_19;
+		bool L_19 = L_18->___running;
+		G_B9_0 = ((int32_t)(L_19));
+		G_B9_1 = G_B7_0;
+		goto IL_008b;
+	}
+
+IL_008a:
+	{
+		G_B9_0 = 0;
+		G_B9_1 = G_B8_0;
+	}
+
+IL_008b:
+	{
+		NullCheck(G_B9_1);
+		Hud_SetBattleHud_mF7737A7545A25AE7A17220E9D7E8AC2A51C74463(G_B9_1, (bool)G_B9_0, NULL);
+		Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353* L_20 = __this->___g;
+		bool L_21 = V_0;
+		if (!L_21)
+		{
+			G_B11_0 = L_20;
+			goto IL_00a6;
+		}
+		G_B10_0 = L_20;
+	}
+	{
+		Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353* L_22 = __this->___g;
+		NullCheck(L_22);
+		bool L_23 = L_22->___running;
+		G_B12_0 = ((int32_t)(L_23));
+		G_B12_1 = G_B10_0;
+		goto IL_00a7;
+	}
+
+IL_00a6:
+	{
+		G_B12_0 = 0;
+		G_B12_1 = G_B11_0;
+	}
+
+IL_00a7:
+	{
+		NullCheck(G_B12_1);
+		G_B12_1->___paused = (bool)G_B12_0;
 		return;
 	}
 }
@@ -14907,6 +14963,62 @@ IL_0052:
 	}
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass110_0_U3CShowHeroSheetU3Eb__1_m61DCEE9EF953CF7858D475AE0BE0126D028A46FB (U3CU3Ec__DisplayClass110_0_t525A035F47504683EF27543E4547CA800B3CE505* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		Hud_t293799F5F9B19F743DB47B37914BF7C5153FCAB1* L_0 = __this->___U3CU3E4__this;
+		NullCheck(L_0);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1 = L_0->___heroOv;
+		NullCheck(L_1);
+		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_1, (bool)0, NULL);
+		Hud_t293799F5F9B19F743DB47B37914BF7C5153FCAB1* L_2 = __this->___U3CU3E4__this;
+		NullCheck(L_2);
+		Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353* L_3 = L_2->___g;
+		int32_t L_4 = __this->___kk;
+		NullCheck(L_3);
+		L_3->___role = L_4;
+		Hud_t293799F5F9B19F743DB47B37914BF7C5153FCAB1* L_5 = __this->___U3CU3E4__this;
+		NullCheck(L_5);
+		EquipPanel_tBE3B34736183639D0917CFE4C1C7AAB31283D723* L_6 = L_5->___equip;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_7;
+		L_7 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_6, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_7)
+		{
+			goto IL_005c;
+		}
+	}
+	{
+		Hud_t293799F5F9B19F743DB47B37914BF7C5153FCAB1* L_8 = __this->___U3CU3E4__this;
+		NullCheck(L_8);
+		EquipPanel_tBE3B34736183639D0917CFE4C1C7AAB31283D723* L_9 = L_8->___equip;
+		NullCheck(L_9);
+		bool L_10;
+		L_10 = EquipPanel_get_Open_m14ACBA2EC21FBB261A82AC4D095763FB25BA2486(L_9, NULL);
+		if (L_10)
+		{
+			goto IL_005c;
+		}
+	}
+	{
+		Hud_t293799F5F9B19F743DB47B37914BF7C5153FCAB1* L_11 = __this->___U3CU3E4__this;
+		NullCheck(L_11);
+		EquipPanel_tBE3B34736183639D0917CFE4C1C7AAB31283D723* L_12 = L_11->___equip;
+		NullCheck(L_12);
+		EquipPanel_Toggle_m9B1BFFF29DAB1AB22BA8898AB8CB52FA758847B0(L_12, NULL);
+	}
+
+IL_005c:
+	{
+		return;
+	}
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass110_0_U3CShowHeroSheetU3Eb__2_m8E9B564F16C9D6B028D06FCF46AF9BA84027626C (U3CU3Ec__DisplayClass110_0_t525A035F47504683EF27543E4547CA800B3CE505* __this, const RuntimeMethod* method) 
 {
 	{
 		Hud_t293799F5F9B19F743DB47B37914BF7C5153FCAB1* L_0 = __this->___U3CU3E4__this;
