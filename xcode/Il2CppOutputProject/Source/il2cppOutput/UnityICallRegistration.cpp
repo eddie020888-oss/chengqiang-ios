@@ -5230,6 +5230,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Transform_IsChildOf_Injected();
 		Register_UnityEngine_Transform_IsChildOf_Injected();
 
+		//System.Int32 UnityEngine.Transform::GetSiblingIndex_Injected(System.IntPtr)
+		void Register_UnityEngine_Transform_GetSiblingIndex_Injected();
+		Register_UnityEngine_Transform_GetSiblingIndex_Injected();
+
 		//System.Int32 UnityEngine.Transform::get_childCount_Injected(System.IntPtr)
 		void Register_UnityEngine_Transform_get_childCount_Injected();
 		Register_UnityEngine_Transform_get_childCount_Injected();
@@ -5269,6 +5273,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.Transform::SetParent_Injected(System.IntPtr,System.IntPtr,System.Boolean)
 		void Register_UnityEngine_Transform_SetParent_Injected();
 		Register_UnityEngine_Transform_SetParent_Injected();
+
+		//System.Void UnityEngine.Transform::SetSiblingIndex_Injected(System.IntPtr,System.Int32)
+		void Register_UnityEngine_Transform_SetSiblingIndex_Injected();
+		Register_UnityEngine_Transform_SetSiblingIndex_Injected();
 
 		//System.Void UnityEngine.Transform::TransformDirection_Injected(System.IntPtr,UnityEngine.Vector3&,UnityEngine.Vector3&)
 		void Register_UnityEngine_Transform_TransformDirection_Injected();
