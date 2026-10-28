@@ -869,7 +869,6 @@ inline intptr_t MarshalledUnityObject_MarshalNotNull_TisAnimationClip_t00BD2F131
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Animation_AddClip_Injected_m7E27F4BB4B6BE8677188453F01F40E5A4C30722E (intptr_t ___0__unity_self, intptr_t ___1_clip, ManagedSpanWrapper_tE7FC4BBB631B130757F8DEB15853D98FD3D5DC0E* ___2_newName, int32_t ___3_firstFrame, int32_t ___4_lastFrame, bool ___5_addLoopFrame, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Animation_RemoveClip_Injected_m70693124304AA2B42CCD173FEB95FBAF6E47BBE1 (intptr_t ___0__unity_self, intptr_t ___1_clip, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Animation_GetClipCount_Injected_mD51EAFBAAB5E75247400BD1D87F5E1D5B51B7541 (intptr_t ___0__unity_self, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Enumerator__ctor_mF3FB66377864673B8DAF14A36DB6D069B98A92F4 (Enumerator_t81434F7D5603121F3D7BD6DB916FE1C755307530* __this, Animation_t6593B06C39E3B139808B19F2C719C860F3F61040* ___0_outer, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AnimationState_tC704F25A20169025B6CFDC2F00DC84152B5B73CE* Animation_GetState_Injected_mEF24FF4331991572363CC3F0B8336028F5A79D2D (intptr_t ___0__unity_self, ManagedSpanWrapper_tE7FC4BBB631B130757F8DEB15853D98FD3D5DC0E* ___1_name, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AnimationState_tC704F25A20169025B6CFDC2F00DC84152B5B73CE* Animation_GetStateAtIndex_Injected_m1C99636EABB3EFE718512F2FBA45C928B9237A59 (intptr_t ___0__unity_self, int32_t ___1_index, const RuntimeMethod* method) ;
@@ -1805,41 +1804,6 @@ IL_0033:
 		return;
 	}
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Animation_GetClipCount_mD0A710E117CDB762F2FC1D355B16C7E2BE13FEA3 (Animation_t6593B06C39E3B139808B19F2C719C860F3F61040* __this, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MarshalledUnityObject_MarshalNotNull_TisAnimation_t6593B06C39E3B139808B19F2C719C860F3F61040_mAAFBCBC72C0E3CDA932325197E3E7AC5F348C925_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	intptr_t G_B2_0;
-	memset((&G_B2_0), 0, sizeof(G_B2_0));
-	intptr_t G_B1_0;
-	memset((&G_B1_0), 0, sizeof(G_B1_0));
-	{
-		intptr_t L_0;
-		L_0 = MarshalledUnityObject_MarshalNotNull_TisAnimation_t6593B06C39E3B139808B19F2C719C860F3F61040_mAAFBCBC72C0E3CDA932325197E3E7AC5F348C925_inline(__this, MarshalledUnityObject_MarshalNotNull_TisAnimation_t6593B06C39E3B139808B19F2C719C860F3F61040_mAAFBCBC72C0E3CDA932325197E3E7AC5F348C925_RuntimeMethod_var);
-		intptr_t L_1 = L_0;
-		if (L_1)
-		{
-			G_B2_0 = L_1;
-			goto IL_000f;
-		}
-		G_B1_0 = L_1;
-	}
-	{
-		ThrowHelper_ThrowNullReferenceException_mA9C7629D32240EE0218631933DAC647668CA63CF(__this, NULL);
-		G_B2_0 = G_B1_0;
-	}
-
-IL_000f:
-	{
-		int32_t L_2;
-		L_2 = Animation_GetClipCount_Injected_mD51EAFBAAB5E75247400BD1D87F5E1D5B51B7541(G_B2_0, NULL);
-		return L_2;
-	}
-}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Animation_GetEnumerator_m247062F212D9C579DAE25D9BC86E4921DC5719E6 (Animation_t6593B06C39E3B139808B19F2C719C860F3F61040* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2121,15 +2085,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Animation_RemoveClip_Injected_m706931243
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (Animation_RemoveClip_Injected_m70693124304AA2B42CCD173FEB95FBAF6E47BBE1_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Animation::RemoveClip_Injected(System.IntPtr,System.IntPtr)");
 	_il2cpp_icall_func(___0__unity_self, ___1_clip);
-}
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Animation_GetClipCount_Injected_mD51EAFBAAB5E75247400BD1D87F5E1D5B51B7541 (intptr_t ___0__unity_self, const RuntimeMethod* method) 
-{
-	typedef int32_t (*Animation_GetClipCount_Injected_mD51EAFBAAB5E75247400BD1D87F5E1D5B51B7541_ftn) (intptr_t);
-	static Animation_GetClipCount_Injected_mD51EAFBAAB5E75247400BD1D87F5E1D5B51B7541_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (Animation_GetClipCount_Injected_mD51EAFBAAB5E75247400BD1D87F5E1D5B51B7541_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Animation::GetClipCount_Injected(System.IntPtr)");
-	int32_t icallRetVal = _il2cpp_icall_func(___0__unity_self);
-	return icallRetVal;
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AnimationState_tC704F25A20169025B6CFDC2F00DC84152B5B73CE* Animation_GetState_Injected_mEF24FF4331991572363CC3F0B8336028F5A79D2D (intptr_t ___0__unity_self, ManagedSpanWrapper_tE7FC4BBB631B130757F8DEB15853D98FD3D5DC0E* ___1_name, const RuntimeMethod* method) 
 {

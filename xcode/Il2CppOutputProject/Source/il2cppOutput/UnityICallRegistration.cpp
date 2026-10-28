@@ -750,10 +750,6 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Animation_Play_Injected();
 		Register_UnityEngine_Animation_Play_Injected();
 
-		//System.Int32 UnityEngine.Animation::GetClipCount_Injected(System.IntPtr)
-		void Register_UnityEngine_Animation_GetClipCount_Injected();
-		Register_UnityEngine_Animation_GetClipCount_Injected();
-
 		//System.Int32 UnityEngine.Animation::GetStateCount_Injected(System.IntPtr)
 		void Register_UnityEngine_Animation_GetStateCount_Injected();
 		Register_UnityEngine_Animation_GetStateCount_Injected();

@@ -1673,6 +1673,7 @@ struct Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353  : public MonoBehaviour_t5
 	int32_t ___lastH;
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___camFocus;
 	float ___hitStopT;
+	float ___nextStopOk;
 	float ___camPunchT;
 	bool ___lastHitCrit;
 	bool ___lastHitKill;
