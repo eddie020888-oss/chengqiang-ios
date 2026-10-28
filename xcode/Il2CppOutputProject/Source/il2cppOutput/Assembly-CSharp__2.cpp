@@ -1367,6 +1367,8 @@ struct Enemy_tC338A73F6CE7172E0CEEF257B230C206DDFC27AE  : public RuntimeObject
 	float ___top;
 	float ___introT;
 	float ___stompT;
+	float ___shotT;
+	bool ___hunter;
 	int32_t ___bossPhase;
 	int32_t ___type;
 	EnemyDef_tF1FC7455C07B0D98F85A851C24F0250FE4AB075A* ___d;
