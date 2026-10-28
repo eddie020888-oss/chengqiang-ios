@@ -2235,12 +2235,15 @@ struct Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353  : public MonoBehaviour_t5
 	int32_t ___lastW;
 	int32_t ___lastH;
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___camFocus;
+	float ___healBudget;
+	float ___healBudgetT;
 	float ___hitStopT;
 	float ___nextStopOk;
 	float ___camPunchT;
 	bool ___lastHitCrit;
 	bool ___lastHitKill;
 	Dictionary_2_t407886BFEC611631BE22FCB5CEE888AF06363719* ___auras;
+	float ___qaTaken;
 	List_1_tDA2D0BA8D491B42C7FCE39D4DB99E93A54EBC5B8* ___pendingAura;
 	Enemy_tC338A73F6CE7172E0CEEF257B230C206DDFC27AE* ___target;
 	float ___targetT;
@@ -2734,6 +2737,7 @@ struct Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353_StaticFields
 	Game_t405E5D8D2DCA8EBB704996D0FBFC12B686EE3353* ___I;
 	Nullable_1_t9C51B084784B716FFF4ED4575C63CFD8A71A86FE ___TourFocus;
 	float ___TourZoom;
+	float ___BaseTimeScale;
 	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___arrowShaftMat;
 	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___arrowTipMat;
 	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___arrowFletchMat;
