@@ -49,6 +49,8 @@ platform :ios do
     update_info_plist(xcodeproj: XCODE_PROJ, plist_path: "Info.plist",
       block: proc { |p| p["ITSAppUsesNonExemptEncryption"] = false; p["CFBundleDisplayName"] = "城墙之战" })
 
+    # unique build number per upload (an icon-only change reuses the exported project's number otherwise)
+    set_info_plist_value(path: "xcode/Info.plist", key: "CFBundleVersion", value: Time.now.utc.strftime("%Y%m%d%H%M"))
     build_app(project: XCODE_PROJ, scheme: "Unity-iPhone", configuration: "Release", export_method: "app-store",
       output_directory: "out", output_name: "ChengQiang.ipa", xcargs: "-allowProvisioningUpdates=NO",
       export_options: { provisioningProfiles: { BUNDLE_ID => profile }, signingStyle: "manual" })
